@@ -1,0 +1,30 @@
+using UnityEngine;
+using System.Collections;
+
+public class CameraScript : MonoBehaviour {
+
+	public bool ortho = false;
+	Camera cam;
+
+	void Start()
+	{
+		cam = gameObject.GetComponent<Camera>();
+	}
+
+	void Update () 
+	{
+		if (ortho == true)
+		{
+			cam.orthographic = true;
+		}
+		else
+		{
+			cam.orthographic = false;
+		}
+	}
+
+	void OnGUI()
+	{
+		ortho = GUI.Toggle(new Rect(10, 10, 100, 30), ortho, "Ortho./Perspec.");
+	}
+}
